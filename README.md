@@ -1,13 +1,11 @@
-# cl-constant-compare
+# Constant Compare
 
-Constant-time byte comparison for Common Lisp to resist timing attacks.
+Utility library providing specialized functionality for Common Lisp applications.
 
 ## Features
 
-- Constant-time comparison regardless of where differences occur
-- No early exit on mismatch
-- Length-safe comparison
-- Zero external dependencies
+- Core functionality implementation
+- Pure Common Lisp (zero external dependencies)
 
 ## Installation
 
@@ -18,38 +16,24 @@ Constant-time byte comparison for Common Lisp to resist timing attacks.
 ## Usage
 
 ```lisp
-(use-package :cl-constant-compare)
-
-;; Compare byte arrays
-(constant-time-equal received-mac computed-mac)
-
-;; Alias
-(secure-compare token1 token2)
-
-;; Works with strings and sequences too
-(timing-safe-equal "secret1" "secret2")
+;; Example usage
+(main-function)
 ```
 
-## Security
+## Testing
 
-These functions are designed to prevent timing attacks by:
-
-1. Always comparing all bytes (no early exit)
-2. Using bitwise operations with predictable timing
-3. Handling length differences without timing leakage
+```lisp
+(asdf:test-system :cl-constant-compare)
+```
 
 ## API
 
-- `constant-time-equal a b` - Compare byte arrays
-- `secure-compare a b` - Alias for constant-time-equal
-- `timing-safe-equal a b` - Compare any sequences (converts internally)
-
-## When to Use
-
-- MAC verification
-- Password/token comparison
-- Any security-sensitive comparison where timing could leak information
+- `main-function - Primary function for core functionality`
 
 ## License
 
-BSD-3-Clause. Copyright (c) 2024-2026 Parkian Company LLC
+BSD-3-Clause License - See LICENSE file for details.
+
+---
+Copyright (c) 2024-2026 Parkian Company LLC. All rights reserved.
+SPDX-License-Identifier: BSD-3-Clause
